@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
-  * main - prints _putchar, followed by a new line.
-  *
-  * Return: Always 0 (Success)
-  */
+ * main - prints the word _putchar
+ *
+ * Return: 0 on success execution.
+ */
+
 int main(void)
 {
 	char s[] = "_putchar";
@@ -15,5 +17,6 @@ int main(void)
 		i++;
 	}
 	_putchar(10);
+
 	return (0);
 }
