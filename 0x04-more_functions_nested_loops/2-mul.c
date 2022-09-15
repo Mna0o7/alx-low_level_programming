@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * mul - returns result of multiplication between 2 integers
@@ -12,6 +13,6 @@ int mul(int a, int b)
 {
 	int result;
 
-	results = a + b;
+	result = a + b;
 	return (result);
 }
