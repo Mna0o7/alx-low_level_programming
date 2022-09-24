@@ -8,14 +8,18 @@
  */
 int main(void)
 {
-	int sum;
-	char c;
-	{
-		c = rand() % 128;
-		sum += c;
-		putchar(c);
-	}
-	putchar(2772 - sum);
+	int r = 0, c = 0;
+	time_t t;
 
+	srand((unsigned int) time(&t));
+	while (c < 2772)
+	{
+		r = rand() % 128;
+		if ((c + r) > 2772)
+			break;
+		c = c + r;
+		printf("%c", r);
+	}
+	printf("%c\n", (2772 - c));
 	return (0);
 }
