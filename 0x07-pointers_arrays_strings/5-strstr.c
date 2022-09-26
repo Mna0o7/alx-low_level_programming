@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strstr - finds the first occurrence of the substring needle in the string haystack
+ * _strstr - finds the first occurrence of the substring
  *
  * @haystack: string to work on
  * @needle: substring to match
