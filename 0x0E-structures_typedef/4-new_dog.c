@@ -1,63 +1,80 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include "dog.h"
-#include <stdlib.h>
 
 /**
- * new_dog - new element of type struct dog
+ * _strlen - return length of a string
  *
- * @name: name of new dog
- * @age: age of new dog
- * @owner: owner o`f new dog
- * Return: new struct dog
+ * @s: char type
+ * Return:  length of string
  */
-dog_t *new_dog(char *name, float age, char *owner)
+
+int _strlen(char *s)
 {
-	dog_t *new_dog;
-	char *dog_name, *dog_owner;
+	int a;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (new_dog);
-	dog_name = malloc(sizeof(name));
-		if (dog_name == NULL)
-		{
-		free(new_dog);
-		return (NULL);
-		}
-	dog_owner = malloc(sizeof(owner));
-	if (dog_owner == NULL)
+	for (a = 0; s[a] != '\0'; a++)
 	{
-		free(dog_name);
-		free(new_dog);
-		return (NULL);
-	}
-	_strcpy(dog_name, name);
-	_strcpy(dog_owner, owner);
-	new_dog->name = dog_name;
-	new_dog->owner = dog_owner;
-	new_dog->age = age;
-	return (new_dog);
-}
 
+	}
+	return (a);
+}
 /**
- * *_strcpy - copies string to given memory location
- * @dest: where the string needs to be copied
- * @src: where the string is
- *
- * Return: char
+ * _strcpy - function to copy string from source to destination
+ * @dest: pointer to destinatioin of string to be copied
+ * @src: pointer to source of string to be copied
+ * Return: return the value at dest
  */
+
 char *_strcpy(char *dest, char *src)
 {
-	int len = 0;
+	int a;
 
-	while (*(src + len) != '\0')
+	for (a = 0; src[a] != '\0'; a++)
 	{
-		*(dest + len) = *(src + len);
-		len++;
+		dest[a] = src[a];
 	}
-	*(dest + len) = *(src + len);
-
-
-
+	dest[a] = '\0';
 	return (dest);
+}
+/**
+ * *new_dog - function to create new dog struct
+ * @name: char type
+ * @age: float type
+ * @owner: char type
+ * Return: Always success
+ */
+
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	dog_t *newd;
+
+	newd = malloc(sizeof(struct dog));
+	if (newd == NULL)
+		return (NULL);
+
+	if (name == NULL)
+	{
+		free(newd);
+		return (NULL);
+	}
+	newd->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (newd->name == NULL)
+		return (NULL);
+	_strcpy(newd->name, name);
+
+	newd->age = age;
+
+	if (owner == NULL)
+	{
+		free(newd->owner);
+		free(newd);
+		return (NULL);
+	}
+	newd->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (newd->owner == NULL)
+		return (NULL);
+	_strcpy(newd->owner, owner);
+
+	return (newd);
 }
