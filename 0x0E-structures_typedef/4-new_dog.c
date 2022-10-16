@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "dog.h"
 #include <stdlib.h>
 
@@ -6,7 +7,7 @@
  *
  * @name: name of new dog
  * @age: age of new dog
- * @owner: owner of new dog
+ * @owner: owner o`f new dog
  * Return: new struct dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
